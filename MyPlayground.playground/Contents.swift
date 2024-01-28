@@ -671,6 +671,71 @@ let human4 = HumanStruct(age: 25, name: "Pavel")
 // Property types - Свойства типов
 // -------------------------------
 
+// static (внутри классов, структур)
+// lazy - инициализируются только тогда, когда их вызовут
+
+// -------------------
+// Наследование класса
+// -------------------
+
+// Базовый класс
+class Dog {
+    
+    var name: String = ""
+    var breed: String = ""
+    
+    var info: String {
+        return "The breed of \(name) is \(breed)"
+    }
+    
+    func makeNoise() -> String {
+        return "Gav-gav"
+    }
+    
+    init(name: String, breed: String) {
+        self.name = name
+        self.breed = breed
+    }
+}
+
+// Наследуемый класс
+class Corgi: Dog {
+    
+    override func makeNoise() -> String {
+        return super.makeNoise() + ", say Corgi"
+    }
+    
+    init() {
+        super.init(name: "Alisa", breed: "Corgie")
+    }
+}
+
+var corgiPuppy = Corgi()
+
+corgiPuppy.name
+corgiPuppy.makeNoise()
+
+
+// ----------
+// Расширения
+// ----------
+
+extension Int {
+    func square() -> Int {
+        return self*self
+    }
+    
+    var isEven: Bool {
+        return self % 2 == 0
+    }
+}
+
+var numberTen = 10
+
+numberTen.square()
+numberTen.isEven
+
+
 
 
 
